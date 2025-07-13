@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contador Público - Malla Curricular</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      overflow-x: auto;
+    }
+
+    h1 {
+      color: #f57c00;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #avance-carrera {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .fila-ciclos {
+      display: flex;
+      flex-direction: row;
+      gap: 50px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: max-content;
+    }
+
+    .bloque {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bloque-ciclo {
+      background-color: #f57c00;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      width: 100%;
+      box-sizing: border-box;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .contenedor-general {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+    }
+
+    .columna-tramo {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .materia {
+      border: 2px solid #f57c00;
+      border-radius: 10px;
+      padding: 10px;
+      width: 250px;
+      background-color: #ffffff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .materia.aprobada {
+      background-color: #f57c00;
+      color: #ffffff;
+      border-color: #f57c00;
+    }
+
+    .codigo {
+      background-color: #f57c00;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      min-width: 60px;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .nombre {
+      color: #333;
+      font-weight: bold;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .materia.aprobada .nombre {
+      color: #ffffff;
+    }
+
+    .requisitos {
+      color: #f57c00;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .materia.aprobada .requisitos {
+      color: #ffffff;
+    }
+
+    .bloqueado {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .botones-auth {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .botones-auth button {
+      background-color: #f57c00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 10px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .botones-auth button:hover {
+      background-color: #e65100;
+    }
+
+    .notas {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+    }
+
+    .notas input {
+      width: 50px;
+      padding: 3px;
+      font-size: 0.9em;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #f57c00;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contador Público</h1>
+
+  <div id="avance-carrera">Avance: 0%</div>
+
+  <div class="botones-auth">
+    <button id="login-btn">Iniciar sesión con Google</button>
+    <button id="logout-btn" style="display: none;">Cerrar sesión</button>
+  </div>
+
+  <div class="fila-ciclos">
+    <div class="bloque">
+      <div class="bloque-ciclo">Ciclo General</div>
+      <div class="contenedor-general">
+        <div class="columna-tramo" id="primer-tramo"></div>
+        <div class="columna-tramo" id="segundo-tramo"></div>
+      </div>
+    </div>
+
+    <div class="bloque">
+      <div class="bloque-ciclo">Ciclo Profesional</div>
+      <div class="contenedor-general" id="cfp-contenedor"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
